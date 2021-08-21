@@ -10,6 +10,6 @@ import java.util.List;
 public class Schema {
     private String type;
     private List<Field> fields;
-    private boolean optioanl;
+    private boolean optional;
     private String name;
 }

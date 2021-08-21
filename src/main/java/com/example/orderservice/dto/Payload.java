@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder //TODO: 분석 필요
+@Builder
 public class Payload {
     private String order_id;
     private String user_id;
@@ -12,5 +12,4 @@ public class Payload {
     private int qty;
     private int unit_price;
     private int total_price;
-
 }

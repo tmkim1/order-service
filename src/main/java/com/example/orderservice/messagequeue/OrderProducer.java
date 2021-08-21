@@ -16,18 +16,16 @@ import java.util.List;
 public class OrderProducer {
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    List<Field> fields = Arrays.asList(new Field("string,", true, "order_id"),
-            new Field("string,", true, "user"),
-            new Field("string,", true, "product_id"),
-            new Field("int32,", true, "qty"),
-            new Field("int32,", true, "unit_price"),
-            new Field("int32,", true, "total_price"));
-
+    List<Field> fields = Arrays.asList(new Field("string", true, "order_id"),
+            new Field("string", true, "user_id"),
+            new Field("string", true, "product_id"),
+            new Field("int32", true, "qty"),
+            new Field("int32", true, "unit_price"),
+            new Field("int32", true, "total_price"));
     Schema schema = Schema.builder()
             .type("struct")
             .fields(fields)
-            .optioanl(false)
-            .name("orders")
+            .name("orders3")
             .build();
 
     @Autowired
@@ -59,7 +57,7 @@ public class OrderProducer {
         }
 
         kafkaTemplate.send(topic, jsonInString);
-        log.info("Kafka Producer sent data from the Order microservice: " + kafkaOrderDto);
+        log.info("Order Producer sent data from the Order microservice: " + kafkaOrderDto);
 
         return orderDto;
 
